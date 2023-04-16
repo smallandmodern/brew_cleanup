@@ -26,7 +26,7 @@ program_info=$(gum spin --spinner dot \
 
 printf "Choose software to uninstall:\n"
 selected_programs=$(printf "%s" "$program_info" | \
-  gum choose --no-limit | awk -F' - ' '{print $1}')
+  gum choose --no-limit | awk -F' - ' '{print $1}' | paste -sd ' ' -)
 
 if [ -z "$selected_programs" ]; then
   printf "No software selected. Exiting.\n"
